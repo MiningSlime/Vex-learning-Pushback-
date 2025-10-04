@@ -12,3 +12,4 @@ How to use (unimportant if you know what you are doing)
 - The motors are currently setup for the bot that I am currently using.
 - The true or false boolian states whether or not the motor is moving in reverse.
 - Once you get your ports correct if your drivetrain is mirrored and the motor positions are the same order in your code the boolians should be opposite.
+- Use F2 on your pnematics to change their names so you can keep better track of them.

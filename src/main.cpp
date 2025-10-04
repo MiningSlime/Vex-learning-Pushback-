@@ -9,6 +9,7 @@
 #include "vex.h"
 #include <string>
 #include "robot-config.h"
+#include "pneumatics-control.h"
 
 using namespace vex;
 
@@ -52,14 +53,21 @@ int main() {
         //calculates curve
         //turnC = turn * tCoefficient;
         turnC = tCoefficient * ((1 - tCurve) * turn) + ((tCurve * pow(turn, 3)) / 16129); // 16129 is 127^2
-
+        // modelled after https://www.desmos.com/calculator/asjs86sdpy
 
         // Arcade Drive, setting the motor velocity
         LeftDrv.setVelocity(powerC + turnC, vex::velocityUnits::pct);
         RightDrv.setVelocity(powerC - turnC, vex::velocityUnits::pct);
         // Arcade Drive, drive
-        Drivetrain.drive(forward);       
+        Drivetrain.drive(forward);
 
+        // Pneumatics control A
+        if (Controller1.ButtonX.pressing()){
+            TogglePneumaticA();
+            waitUntil(!Controller1.ButtonX.pressing());
+        }
+        
+        // Nothing...
         if (Controller1.ButtonB.pressing())
         {
             Brain.Screen.print("This Person is presssing B it does nothing muahaha.");
