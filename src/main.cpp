@@ -63,7 +63,7 @@ int main() {
 
         // Pneumatics control A
         if (Controller1.ButtonX.pressing()){
-            funnyhaha();
+            TogglePneumaticA();
             waitUntil(!Controller1.ButtonX.pressing());
         }
         
