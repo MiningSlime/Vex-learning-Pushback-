@@ -7,6 +7,7 @@
 extern vex::pneumatics PneuA;
 extern vex::pneumatics PneuB;
 extern vex::pneumatics PneuC;
+extern vex::pneumatics PenuD;
 
 // Toggles
 void TogglePneumaticA(){
@@ -18,14 +19,19 @@ void TogglePneumaticA(){
 void TogglePneumaticB(){
     static bool state = false;
     state = !state;
-    PneuA.set(state);
+    PneuB.set(state);
 }
 
 void TogglePneumaticC(){
     static bool state = false;
     state = !state;
-    PneuA.set(state);
+    PneuC.set(state);
 }
 
+void TogglePneumaticD(){
+    static bool state = false;
+    state = !state;
+    PneuD.set(state);
+}
 
 #endif // PNEUMATICS_CONTROL_H
