@@ -10,6 +10,7 @@
 #include <string>
 #include "robot-config.h"
 #include "pneumatics-control.h"
+#include "intake.h"
 
 using namespace vex;
 
@@ -55,6 +56,16 @@ int main() {
         // Arcade Drive, drive
         Drivetrain.drive(forward);
         
+        if (Controller1.ButtonR1.pressing()) {
+            IntakeFWD();
+        }
+        else if (Controller1.ButtonR2.pressing()) {
+            IntakeREV();
+        }
+        else {
+            IntakeA.stop();
+        }
+
         // Nothing...
         if (Controller1.ButtonB.pressing()) {
             Brain.Screen.print("This Person is presssing B it does nothing muahaha.");
